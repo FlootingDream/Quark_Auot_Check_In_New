@@ -95,6 +95,6 @@ jobs:
         if: always()
         with:
           token: ${{ github.token }}
-          仓库: ${{ github.repository }}
+          repository: ${{ github.repository }}
           retain_days: 0
           keep_minimum_runs: 60
