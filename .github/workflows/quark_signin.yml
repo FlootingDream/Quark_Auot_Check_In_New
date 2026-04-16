@@ -1,6 +1,6 @@
 name: Quark签到
 
-于:
+on:
   schedule:
     - cron: '0 1 * * *'   # 北京时间 09:00 (UTC+8 -> UTC+1)
     - cron: '0 5 * * *'   # 北京时间 13:00 (UTC+8 -> UTC+5)
