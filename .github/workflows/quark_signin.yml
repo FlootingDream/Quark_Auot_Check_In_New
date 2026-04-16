@@ -1,6 +1,6 @@
 name: Quark签到
 
-on:
+于:
   schedule:
     - cron: '0 1 * * *'   # 北京时间 09:00 (UTC+8 -> UTC+1)
     - cron: '0 5 * * *'   # 北京时间 13:00 (UTC+8 -> UTC+5)
@@ -13,11 +13,11 @@ jobs:
       skip: ${{ steps.check.outputs.skip }}
     steps:
       - name: 检出代码
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: 恢复签到成功记录缓存
         id: cache-success-restore
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .last_success_date
           key: last-success-marker
@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 检出代码
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       - name: 随机延迟（早上）
         if: github.event.schedule == '0 1 * * *'
@@ -85,7 +85,7 @@ jobs:
 
       - name: 保存成功记录到缓存
         if: success()
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: .last_success_date
           key: last-success-marker
@@ -95,6 +95,6 @@ jobs:
         if: always()
         with:
           token: ${{ github.token }}
-          repository: ${{ github.repository }}
+          仓库: ${{ github.repository }}
           retain_days: 0
           keep_minimum_runs: 60
